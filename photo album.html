@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> SUPER BIKES </title>
+	<style>
+        h1{
+            text-align:center
+        }
+		.album {
+			display:flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.album img {
+			margin: 10px;
+			max-width: 350px;
+			max-height: 350px;
+			object-fit: cover;
+			border: 5px solid #0b0b0b;
+			border-radius: 40px;
+			box-shadow: 0 0 5px #ccc;
+			transition: box-shadow 0.3s ease-in-out;
+			cursor: pointer;
+		}
+		.album img:hover {
+			box-shadow: 0 0 10px #999;
+		}
+		.modal {
+			display: none;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.8);
+		}
+		.modal-content {
+			display: block;
+			margin: auto;
+			max-width: 90%;
+			max-height: 90%;
+			object-fit: contain;
+			border: 1px solid #ddd;
+			border-radius: 5px;
+			box-shadow: 0 0 5px #ccc;
+		}
+		.modal-content::-webkit-scrollbar {
+			width: 10px;
+		}
+		.modal-content::-webkit-scrollbar-track {
+			background-color: #f1f1f1;
+		}
+		.modal-content::-webkit-scrollbar-thumb {
+			background-color: #888;
+			border-radius: 5px;
+		}
+		.close {
+			position: absolute;
+			top: 0;
+			right: 0;
+			color: #fff;
+			font-size: 24px;
+			font-weight: bold;
+			padding: 10px;
+			cursor: pointer;
+		}
+	</style>
+	<script>
+		// Open modal when photo is clicked
+		function openModal(img) {
+			document.getElementById("modal-img").src = img.src;
+			document.getElementById("modal").style.display = "block";
+		}
+
+		// Close modal when close button or outside modal is clicked
+		function closeModal() {
+			document.getElementById("modal").style.display = "none";
+		}
+		window.onclick = function(event) {
+			if (event.target == document.getElementById("modal")) {
+				closeModal();
+			}
+		};
+	</script>
+</head>
+<body style = "background-color: rgb(7, 7, 7);">
+	          <h1 style="color:rgb(233, 93, 28);"><strong> "SUPER BIKES COLLECTION " </strong>  </h1>
+	<div class="album">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Kawasaki_Ninja_H2.jpg/800px-Kawasaki_Ninja_H2.jpg" onclick="openModal(this)">
+		<img src="https://www.bikebound.com/wp-content/uploads/2021/07/BMW-R-nineT-Scrambler-FB-1.jpg" onclick="openModal(this)">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQB-z5hkcT8A0YPc36nOw_Bz_vy-SPqFyGKGA&usqp=CAU" onclick="openModal(this)">
+		<img src="https://i.ytimg.com/vi/7CQVGlbY8H0/maxresdefault.jpg" onclick="openModal(this)">
+		<img src="https://news.maxabout.com/wp-content/uploads/2017/05/Benelli-TNT-600i-K-Speed-Customs-3.jpg" onclick="openModal(this)">
+		<img src="https://www.cartoq.com/wp-content/uploads/2018/10/ktm-scrambler.jpg" onclick="openModal(this)">
+		<img src="https://bloximages.chicago2.vip.townnews.com/pantagraph.com/content/tncms/assets/v3/editorial/b/ec/bec7aa85-b8f2-5225-807d-334729439dc9/599194da0e186.image.jpg" onclick="openModal(this)">
+		<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSenUHEim3gjfeh_Vprug4N5JJBhTvYR__e-qDtC4cWCJ0TMwIwo770ohD3BjDz-sKV4DA&usqp=CAU" onclick="openModal(this)">
+	</div>
+	<div id="modal" class="modal">
+		<span class="close" onclick="closeModal()">&times;</span>
+		<img id="modal-img" class="modal-content">
+	</div>
+</body>
+</html>
